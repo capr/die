@@ -35,9 +35,9 @@ foo && bar && baz || die "Oh my."
 
 hold "I need you to press a key. Pass --yes so I won't hold you like this."
 
-run optional_command | error "this didn't work but we go on."
+run optional_command || error "this didn't work but we go on."
 
-must important_command
+must important_command # if this fails, abort the mission.
 
 debug "this is what I just did... blah blah blah... and then..."
 
