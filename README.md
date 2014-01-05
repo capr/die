@@ -1,6 +1,6 @@
 ## What
 
-A set of 7 functions for flow control and progress/error reporting for shell scripts. It makes scripts **less hairy** and more illustrative of author's intent, at the same time providing a framework for allowing the user of the script to control the interaction. It has the elegance, flexibility, simplicity and expressivness of a Ruby web framework, without being made in Ruby even, all in 7 lines of code, so you know it's minimalist.
+A set of 7 functions for flow control and progress/error reporting for shell scripts. It makes scripts **less hairy** and more illustrative of author's intent, at the same time providing a framework for allowing the user of the script to control the interaction. It has the elegance, flexibility, simplicity and expressivness of a Ruby web framework, without being made in Ruby even. All in 7 lines of code, for the most exigent minimalistic affectations.
 
 This is how it works:
 
