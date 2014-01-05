@@ -1,12 +1,12 @@
 ## What
 
 A basic set of functions for flow control and user interaction for shell scripts.
-It improves the readability of scripts by making them shorter and more illustrative of author's intent, while at the same time providing a framework for allowing the user of the script to control the interaction.
+It improves the readability of scripts by making them shorter and more illustrative of author's intent, while at the same time providing a framework for allowing the user of the script to control the interaction. All in 6 lines of code.
 
 ```
 debug "script started"            # use --debug to see the message
 say "Hi"                          # suppress with --quiet
-somecmd || die "can't go on"      # laments and exits with code 1 if the command fails 
+some_cmd || die "can't go on"     # laments and exits with code 1 if the command fails 
 run somecmd args                  # use --debug to see the full command and its exit code 
 must somecmd args                 # if somecmd fails, exits showing what ran and the exit code
 hold "Look at me now"             # asks for a keypress; suppress with --yes or --quiet
@@ -52,7 +52,7 @@ Adding error checking and progress/error reporting to shell scripts makes them u
 ```bash
 #!/bin/sh (source it!)
 # die: basic vocabulary for flow control and progress/error reporting
-# v1.0 | Cosmin Apreutesei | sh-die.googlecode.com | MIT License
+# v1.0 | Cosmin Apreutesei (public domain) | http://github.com/capr/die
 # these functions are influenced by $QUIET, $DEBUG and $YES variables
 
 say()   { [ "$QUIET" ] || echo "$@" >&2; }
