@@ -1,7 +1,8 @@
 ## What
 
-A basic set of functions for flow control and user interaction for shell scripts.
-It improves the readability of scripts by making them shorter and more illustrative of author's intent, while at the same time providing a framework for allowing the user of the script to control the interaction. All in 7 lines of code. Talk about minimalism :)
+A basic set of functions for user interaction and flow control for shell scripts. It improves the readability of scripts, making them **less hairy** and more illustrative of author's intent, at the same time providing a framework for allowing the user of the script to control the interaction.
+
+It has the elegance, flexibility, simplicity and expressivness of a Ruby web framework, without being made in Ruby even, all in 7 lines of code, so you know it's minimalist. Now put this thing in your `PATH` and never write shell scripts without it again.
 
 ```
 debug "script started"            # use --debug to see the message
