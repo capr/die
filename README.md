@@ -1,22 +1,8 @@
 ## What
 
-A basic set of functions for user interaction and flow control for shell scripts. It improves the readability of scripts, making them **less hairy** and more illustrative of author's intent, at the same time providing a framework for allowing the user of the script to control the interaction.
+A set of 7 functions for flow control and progress/error reporting for shell scripts. It makes scripts **less hairy** and more illustrative of author's intent, at the same time providing a framework for allowing the user of the script to control the interaction. It has the elegance, flexibility, simplicity and expressivness of a Ruby web framework, without being made in Ruby even, all in 7 lines of code, so you know it's minimalist.
 
-It has the elegance, flexibility, simplicity and expressivness of a Ruby web framework, without being made in Ruby even, all in 7 lines of code, so you know it's minimalist. Now put this thing in your `PATH` and never write shell scripts without it again.
-
-```
-debug "script started"            # use --debug to see the message
-say "Hi"                          # suppress with --quiet
-some_cmd || die "can't go on"     # laments and exits with code 1 if the command fails 
-run somecmd args                  # use --debug to see the full command and its exit code 
-must somecmd args                 # if somecmd fails, exits showing what ran and the exit code
-hold "Look at me now"             # asks for a keypress; suppress with --yes or --quiet
-error "nothing serious"           # reports an error and continues; supress with --quiet
-say "Bye"                         # suppress with --quiet
-debug "script ended"              # see this with --debug
-```
-
-This is how a die-enahnced script would look like:
+This is how it works:
 
 ```bash
 . die
@@ -30,18 +16,15 @@ while [ $# -gt 0 ]; do
   shift
 done
 
-say "Good news everyone. Pass --quiet so I won't bother you like this."
-
-foo && bar && baz || die "Oh my."
-
-hold "I need you to press a key. Pass --yes so I won't hold you like this."
-
-run optional_command || error "this didn't work but we go on."
-
-must important_command # if this fails, abort the mission.
-
-debug "this is what I just did... blah blah blah... and then..."
-
+debug "script started"            # use --debug to see the message
+say "Hi"                          # suppress with --quiet
+some_cmd || die "can't go on"     # laments and exits with code 1 if the command fails 
+run somecmd args                  # use --debug to see the full command and its exit code 
+must somecmd args                 # if somecmd fails, exits showing what ran and the exit code
+hold "Look at me now"             # asks for a keypress; suppress with --yes or --quiet
+error "nothing serious"           # reports an error and continues; supress with --quiet
+say "Bye"                         # suppress with --quiet
+debug "script ended"              # see this with --debug
 ```
 
 ## Why
