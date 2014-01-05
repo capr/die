@@ -1,0 +1,48 @@
+#!/bin/bash
+. die
+
+clear
+QUIET=
+DEBUG=
+YES=
+
+say "Hi there from stderr" || die "must return 0"
+error "you should see this but the script must continue" && die "must return 1"
+debug "you should NOT see this debug message" || die "must return 0"
+run true you should NOT see this || die "must return 0"
+run false you should NOT see this && die "must return 1"
+must true you should NOT see this || die "must return 0"
+(must false you should see this) && die "must return 1" #will see only EXIT: ...
+
+QUIET=true
+say "you should NOT see this" || die "must return 0"
+error "you should NOT see this" && die "must return 1"
+hold "I can't hold you and you should NOT see this" || die "must return 0"
+debug "you should NOT see this" || die "must return 0"
+QUIET=
+
+YES=true
+hold "I can't hold you but you should see this" || die "must return 0"
+YES=
+
+DEBUG=true
+debug "you should see this debug message and the next runs and musts" || die "must return 0"
+run true you should see this || die "must return 0"
+run false you should see this && die "must return 1"
+must true you should see this || die "must return 0"
+(must false you should see this) && die "must return 1"
+DEBUG=
+
+hold "I can hold you now!" || die "must return 0"
+say "Again, pls"
+hold || die "must return 0"
+say "check out the subprocess caveat thing..."
+say
+somevar="$(must false)" || say "only subprocess died"
+find | must false || say "only subprocess died"
+find | while read f; do die "somth bad happen"; done || say "only subprocess died"
+find | { die "somth bad happen"; } || say "only subprocess died"
+(must false) || say "only subprocess died"
+(false || die "somth bad happen") || say "only subprocess died"
+say "the main process is still alive"
+say
