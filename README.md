@@ -47,7 +47,7 @@ run()   { debug -n "EXEC: $@ "; "$@"; local ret=$?; debug "[$ret]"; return $ret;
 must()  { debug -n "MUST: $@ "; "$@"; local ret=$?; debug "[$ret]"; [ $ret == 0 ] || die "$@ [$ret]"; }
 hold()  { [ $# -gt 0 ] && say "$@"; [ "$YES$QUIET" ] && return; echo -n "Press ENTER to continue, or ^C to quit."; read; }
 ```
-[source]() | [testing unit]()
+[source](https://raw.github.com/capr/die/master/die) | [testing unit](https://raw.github.com/capr/die/master/die-test)
 
 ## In English
 
