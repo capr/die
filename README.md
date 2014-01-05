@@ -1,7 +1,7 @@
 ## What
 
 A basic set of functions for flow control and user interaction for shell scripts.
-It improves the readability of scripts by making them shorter and more illustrative of author's intent, while at the same time providing a framework for allowing the user of the script to control the interaction. All in 6 lines of code.
+It improves the readability of scripts by making them shorter and more illustrative of author's intent, while at the same time providing a framework for allowing the user of the script to control the interaction. All in 6 lines of code. Talk about minimalism :)
 
 ```
 debug "script started"            # use --debug to see the message
