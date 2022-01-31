@@ -36,7 +36,7 @@ Adding error checking and progress/error reporting to shell scripts makes them u
 ```bash
 #!/bin/sh (source it!)
 # die: basic vocabulary for flow control and progress/error reporting
-# v1.0 | Cosmin Apreutesei (public domain) | http://github.com/capr/die
+# v1.1 | Cosmin Apreutesei (public domain) | http://github.com/capr/die
 # these functions are influenced by $QUIET, $DEBUG and $YES variables
 
 say()   { [ "$QUIET" ] || echo "$@" >&2; }
@@ -44,7 +44,7 @@ error() { say -n "ERROR: "; say "$@"; return 1; }
 die()   { echo -n "EXIT: " >&2; echo "$@" >&2; exit 1; }
 debug() { [ -z "$DEBUG" ] || echo "$@" >&2; }
 run()   { debug -n "EXEC: $@ "; "$@"; local ret=$?; debug "[$ret]"; return $ret; }
-must()  { debug -n "MUST: $@ "; "$@"; local ret=$?; debug "[$ret]"; [ $ret == 0 ] || die "$@ [$ret]"; }
+must()  { debug -n "MUST: $@ "; "$@"; local ret=$?; debug "[$ret]"; [ $ret = 0 ] || die "$@ [$ret]"; }
 hold()  { [ $# -gt 0 ] && say "$@"; [ "$YES$QUIET" ] && return; echo -n "Press ENTER to continue, or ^C to quit."; read; }
 ```
 [source](https://raw.github.com/capr/die/master/die) | [testing unit](https://raw.github.com/capr/die/master/die-test)
