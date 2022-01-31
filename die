@@ -1,6 +1,6 @@
 #!/bin/sh (source it!)
 # die: basic vocabulary for flow control and progress/error reporting
-# v1.0 | Cosmin Apreutesei (public domain) | http://github.com/capr/die
+# v1.1 | Cosmin Apreutesei (public domain) | http://github.com/capr/die
 # these functions are influenced by $QUIET, $DEBUG and $YES variables
 
 say()   { [ "$QUIET" ] || echo "$@" >&2; }
